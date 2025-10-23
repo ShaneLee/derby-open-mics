@@ -27,6 +27,15 @@ const eventsData = [
         "endTime": "22:00:00"
     },
     {
+        "id": "d14a78dc-9fa1-3e4a-87a8-07f5fdb6b655",
+        "name": "The Hawk and Buckle Etwall Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-10-27",
+        "startTime": "20:00:00",
+        "endTime": null
+    },
+    {
         "id": "ddc093f1-1425-3aae-b1bc-9ab67b8826b3",
         "name": "Love Your Sound Open Mic (Bunk)",
         "category": "Open Mic",
@@ -34,6 +43,15 @@ const eventsData = [
         "date": "2025-10-28",
         "startTime": "19:00:00",
         "endTime": "23:00:00"
+    },
+    {
+        "id": "f8a48b75-ae09-3239-a0d4-a3cce160ec65",
+        "name": "The Greyhound Friar Gate Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-10-29",
+        "startTime": "19:00:00",
+        "endTime": null
     },
     {
         "id": "219fc5a7-aee3-3936-9f40-2ef188e8402d",
