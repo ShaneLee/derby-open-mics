@@ -1,23 +1,5 @@
 const eventsData = [
     {
-        "id": "1f46eff8-6d34-390e-93de-946b65db940b",
-        "name": "Darley Abbey Wines Open Mic Night",
-        "category": "Open Mic",
-        "notes": "",
-        "date": "2025-10-23",
-        "startTime": "17:00:00",
-        "endTime": "23:00:00"
-    },
-    {
-        "id": "7c62e5ae-7f95-3806-85b4-34a3fb9c4cbe",
-        "name": "The Prince Of Wales Open Mic Night",
-        "category": "Open Mic",
-        "notes": "Hosted by Sam",
-        "date": "2025-10-23",
-        "startTime": "19:30:00",
-        "endTime": null
-    },
-    {
         "id": "14c996bc-ed0b-3915-b133-1a3b31b306f4",
         "name": "The Royal Telegraph Open Mic Night",
         "category": "Open Mic",
@@ -68,6 +50,42 @@ const eventsData = [
         "category": "Open Mic",
         "notes": "Hosted by Ding",
         "date": "2025-10-29",
+        "startTime": "19:30:00",
+        "endTime": null
+    },
+    {
+        "id": "4bfa743d-2786-34ae-892d-3f9c2142e0f4",
+        "name": "Bless Open Mic",
+        "category": "Open Mic",
+        "notes": "Not sure of the time (recurring)",
+        "date": "2025-10-30",
+        "startTime": "00:00:00",
+        "endTime": "00:00:00"
+    },
+    {
+        "id": "8c77a90f-9003-35e0-ab49-743066ecc8c5",
+        "name": "Darley Abbey Wines Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-10-30",
+        "startTime": "17:00:00",
+        "endTime": "23:00:00"
+    },
+    {
+        "id": "e114588c-6914-3515-9a9f-d314dc7ab683",
+        "name": "The Prince Of Wales Open Mic Night",
+        "category": "Open Mic",
+        "notes": "Hosted by Ding & John",
+        "date": "2025-10-30",
+        "startTime": "19:30:00",
+        "endTime": null
+    },
+    {
+        "id": "c7597152-79f1-3678-b60e-b79218c1dc8b",
+        "name": "Spondon Liberal Club Open Mic",
+        "category": "Open Mic",
+        "notes": "Not sure of the time (recurring)",
+        "date": "2025-10-30",
         "startTime": "19:30:00",
         "endTime": null
     }
