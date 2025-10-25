@@ -376,5 +376,23 @@ const eventsData = [
         "date": "2025-11-23",
         "startTime": "20:00:00",
         "endTime": "23:00:00"
+    },
+    {
+        "id": "8e136dcf-ee0b-3656-8795-f570452df046",
+        "name": "The Royal Telegraph Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-24",
+        "startTime": "19:00:00",
+        "endTime": "22:00:00"
+    },
+    {
+        "id": "15952c1a-0da7-397a-8163-510eac185d4c",
+        "name": "The Hawk and Buckle Etwall Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-24",
+        "startTime": "20:00:00",
+        "endTime": null
     }
 ];
