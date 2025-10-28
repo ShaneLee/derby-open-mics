@@ -1,32 +1,5 @@
 const eventsData = [
     {
-        "id": "14c996bc-ed0b-3915-b133-1a3b31b306f4",
-        "name": "The Royal Telegraph Open Mic Night",
-        "category": "Open Mic",
-        "notes": "",
-        "date": "2025-10-27",
-        "startTime": "19:00:00",
-        "endTime": "22:00:00"
-    },
-    {
-        "id": "d8925372-40fd-32b3-a302-1602e1d60ae4",
-        "name": "The Mill & Brook Long Eaton Open Mic Night",
-        "category": "Open Mic",
-        "notes": "https://www.facebook.com/MillandBrook",
-        "date": "2025-10-27",
-        "startTime": "19:00:00",
-        "endTime": null
-    },
-    {
-        "id": "d14a78dc-9fa1-3e4a-87a8-07f5fdb6b655",
-        "name": "The Hawk and Buckle Etwall Open Mic Night",
-        "category": "Open Mic",
-        "notes": "",
-        "date": "2025-10-27",
-        "startTime": "20:00:00",
-        "endTime": null
-    },
-    {
         "id": "ddc093f1-1425-3aae-b1bc-9ab67b8826b3",
         "name": "Love Your Sound Open Mic (Bunk)",
         "category": "Open Mic",
@@ -34,6 +7,15 @@ const eventsData = [
         "date": "2025-10-28",
         "startTime": "19:00:00",
         "endTime": "23:00:00"
+    },
+    {
+        "id": "d9484101-9a55-3342-9f73-b766082c1100",
+        "name": "Coach & Horses, Draycott Jam Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-10-28",
+        "startTime": "20:00:00",
+        "endTime": null
     },
     {
         "id": "f8a48b75-ae09-3239-a0d4-a3cce160ec65",
@@ -45,15 +27,6 @@ const eventsData = [
         "endTime": null
     },
     {
-        "id": "a52460ae-7595-377f-9ade-565292815831",
-        "name": "The Royal Standard Open Mic Night",
-        "category": "Open Mic",
-        "notes": "Hosted by Ding",
-        "date": "2025-10-29",
-        "startTime": "19:30:00",
-        "endTime": null
-    },
-    {
         "id": "219fc5a7-aee3-3936-9f40-2ef188e8402d",
         "name": "The Creaky Floorboard Open Mic",
         "category": "Open Mic",
@@ -61,6 +34,15 @@ const eventsData = [
         "date": "2025-10-29",
         "startTime": "19:30:00",
         "endTime": "23:00:00"
+    },
+    {
+        "id": "a52460ae-7595-377f-9ade-565292815831",
+        "name": "The Royal Standard Open Mic Night",
+        "category": "Open Mic",
+        "notes": "Hosted by Ding",
+        "date": "2025-10-29",
+        "startTime": "19:30:00",
+        "endTime": null
     },
     {
         "id": "4bfa743d-2786-34ae-892d-3f9c2142e0f4",
@@ -324,15 +306,6 @@ const eventsData = [
         "endTime": null
     },
     {
-        "id": "caf5d221-f78d-36e6-9023-481ea86db384",
-        "name": "The Royal Standard Open Mic Night",
-        "category": "Open Mic",
-        "notes": "Hosted by Ding",
-        "date": "2025-11-12",
-        "startTime": "19:30:00",
-        "endTime": null
-    },
-    {
         "id": "088a4dfd-261c-3c71-896a-08226b182661",
         "name": "The Creaky Floorboard Open Mic",
         "category": "Open Mic",
@@ -340,6 +313,15 @@ const eventsData = [
         "date": "2025-11-12",
         "startTime": "19:30:00",
         "endTime": "23:00:00"
+    },
+    {
+        "id": "caf5d221-f78d-36e6-9023-481ea86db384",
+        "name": "The Royal Standard Open Mic Night",
+        "category": "Open Mic",
+        "notes": "Hosted by Ding",
+        "date": "2025-11-12",
+        "startTime": "19:30:00",
+        "endTime": null
     },
     {
         "id": "f8f3ce2f-c7f3-35c1-a9eb-468a0ea6fadc",
@@ -423,15 +405,6 @@ const eventsData = [
         "endTime": "23:00:00"
     },
     {
-        "id": "4d03cbba-7a91-321b-b64e-fe317bb71bca",
-        "name": "The Royal Telegraph Open Mic Night",
-        "category": "Open Mic",
-        "notes": "",
-        "date": "2025-11-17",
-        "startTime": "19:00:00",
-        "endTime": "22:00:00"
-    },
-    {
         "id": "095c766b-6987-3b53-b558-8dcd15131111",
         "name": "The Mill & Brook Long Eaton Open Mic Night",
         "category": "Open Mic",
@@ -439,6 +412,15 @@ const eventsData = [
         "date": "2025-11-17",
         "startTime": "19:00:00",
         "endTime": null
+    },
+    {
+        "id": "4d03cbba-7a91-321b-b64e-fe317bb71bca",
+        "name": "The Royal Telegraph Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-17",
+        "startTime": "19:00:00",
+        "endTime": "22:00:00"
     },
     {
         "id": "2fc94f24-ae48-34f0-9872-b6e3c8d77f8e",
@@ -576,6 +558,15 @@ const eventsData = [
         "endTime": "23:00:00"
     },
     {
+        "id": "a7aad349-f478-36da-b1db-3595d066b31e",
+        "name": "Coach & Horses, Draycott Jam Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-25",
+        "startTime": "20:00:00",
+        "endTime": null
+    },
+    {
         "id": "ea7b459f-9bdd-3d3e-9617-172403df2ff9",
         "name": "The Greyhound Friar Gate Open Mic Night",
         "category": "Open Mic",
@@ -601,5 +592,59 @@ const eventsData = [
         "date": "2025-11-26",
         "startTime": "19:30:00",
         "endTime": "23:00:00"
+    },
+    {
+        "id": "25df76bb-a856-3097-b828-1429fc67af98",
+        "name": "Bless Open Mic",
+        "category": "Open Mic",
+        "notes": "Not sure of the time (recurring)",
+        "date": "2025-11-27",
+        "startTime": "00:00:00",
+        "endTime": "00:00:00"
+    },
+    {
+        "id": "8cb32fad-7d42-3d00-8727-f57c05f7b06d",
+        "name": "Darley Abbey Wines Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-27",
+        "startTime": "17:00:00",
+        "endTime": "23:00:00"
+    },
+    {
+        "id": "4806cb5e-b4d5-3960-a232-27c8110c09dc",
+        "name": "Dubrek Open Mic Night",
+        "category": "Open Mic",
+        "notes": "Hosted by Carl North https://dubrek.co.uk/event/dubrek-open-mic-with-carl-north-13/",
+        "date": "2025-11-27",
+        "startTime": "19:00:00",
+        "endTime": null
+    },
+    {
+        "id": "ceccb823-46cc-3462-8a5b-cb63ed78a779",
+        "name": "Spondon Liberal Club Open Mic",
+        "category": "Open Mic",
+        "notes": "Not sure of the time (recurring)",
+        "date": "2025-11-27",
+        "startTime": "19:30:00",
+        "endTime": null
+    },
+    {
+        "id": "9d30c5e4-b7d0-3b5a-a325-dc678c10d492",
+        "name": "The Prince Of Wales Open Mic Night",
+        "category": "Open Mic",
+        "notes": "Hosted by Ding & John",
+        "date": "2025-11-27",
+        "startTime": "19:30:00",
+        "endTime": null
+    },
+    {
+        "id": "efa63658-42c8-3734-9a08-12bb846509e2",
+        "name": "The Maypole Open Mic Night",
+        "category": "Open Mic",
+        "notes": "https://www.instagram.com/maypole.derby/",
+        "date": "2025-11-27",
+        "startTime": "20:00:00",
+        "endTime": null
     }
 ];
