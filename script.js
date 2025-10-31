@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('events-container');
     const dateFilter = document.getElementById('dateFilter');
     const clearFilterButton = document.getElementById('clearFilter');
+    const filterTodayButton = document.getElementById('filterToday');
     const toggleViewButton = document.getElementById('toggleView');
     let isTableView = false;
 
@@ -143,6 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     clearFilterButton.addEventListener('click', () => {
         dateFilter.value = '';
+        filterEvents();
+    });
+
+    filterTodayButton.addEventListener('click', () => {
+        const today = new Date().toISOString().split('T')[0];
+        dateFilter.value = today;
         filterEvents();
     });
 
