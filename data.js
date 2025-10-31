@@ -1,14 +1,5 @@
 const eventsData = [
     {
-        "id": "bb0bf57f-5eed-3754-be11-8b6104ee2dc0",
-        "name": "The Masons - Mickleover Open Mic Night",
-        "category": "Open Mic",
-        "notes": "",
-        "date": "2025-11-02",
-        "startTime": "16:00:00",
-        "endTime": "20:00:00"
-    },
-    {
         "id": "5785fbec-f2e7-3740-8c3a-ab0c3c597b4e",
         "name": "Electric Daisy Open Mic",
         "category": "Open Mic",
@@ -16,6 +7,15 @@ const eventsData = [
         "date": "2025-11-02",
         "startTime": "16:00:00",
         "endTime": "19:30:00"
+    },
+    {
+        "id": "bb0bf57f-5eed-3754-be11-8b6104ee2dc0",
+        "name": "The Masons - Mickleover Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-02",
+        "startTime": "16:00:00",
+        "endTime": "20:00:00"
     },
     {
         "id": "9cdae28a-a932-33d8-b74b-f3783d71a9fc",
@@ -45,15 +45,6 @@ const eventsData = [
         "endTime": "23:00:00"
     },
     {
-        "id": "6e7bfc0e-34d6-32a5-af38-39c9fc9c6a1a",
-        "name": "The Mill & Brook Long Eaton Open Mic Night",
-        "category": "Open Mic",
-        "notes": "https://www.facebook.com/MillandBrook",
-        "date": "2025-11-03",
-        "startTime": "19:00:00",
-        "endTime": null
-    },
-    {
         "id": "4f4a227d-37ea-3f73-912a-92a89e7fa72b",
         "name": "The Royal Telegraph Open Mic Night",
         "category": "Open Mic",
@@ -61,6 +52,15 @@ const eventsData = [
         "date": "2025-11-03",
         "startTime": "19:00:00",
         "endTime": "22:00:00"
+    },
+    {
+        "id": "6e7bfc0e-34d6-32a5-af38-39c9fc9c6a1a",
+        "name": "The Mill & Brook Long Eaton Open Mic Night",
+        "category": "Open Mic",
+        "notes": "https://www.facebook.com/MillandBrook",
+        "date": "2025-11-03",
+        "startTime": "19:00:00",
+        "endTime": null
     },
     {
         "id": "e395cb64-723f-3dee-ac1e-2cfa30824c29",
@@ -207,15 +207,6 @@ const eventsData = [
         "endTime": null
     },
     {
-        "id": "088a4dfd-261c-3c71-896a-08226b182661",
-        "name": "The Creaky Floorboard Open Mic",
-        "category": "Open Mic",
-        "notes": "",
-        "date": "2025-11-12",
-        "startTime": "19:30:00",
-        "endTime": "23:00:00"
-    },
-    {
         "id": "caf5d221-f78d-36e6-9023-481ea86db384",
         "name": "The Royal Standard Open Mic Night",
         "category": "Open Mic",
@@ -223,6 +214,15 @@ const eventsData = [
         "date": "2025-11-12",
         "startTime": "19:30:00",
         "endTime": null
+    },
+    {
+        "id": "088a4dfd-261c-3c71-896a-08226b182661",
+        "name": "The Creaky Floorboard Open Mic",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-12",
+        "startTime": "19:30:00",
+        "endTime": "23:00:00"
     },
     {
         "id": "f8f3ce2f-c7f3-35c1-a9eb-468a0ea6fadc",
@@ -261,13 +261,13 @@ const eventsData = [
         "endTime": null
     },
     {
-        "id": "ea491e72-99a9-308b-9d6c-ff8c9a91e954",
-        "name": "Electric Daisy Open Mic",
+        "id": "c2c7f104-12f4-4659-89b9-7930e7ba2ac3",
+        "name": "Open Mic Irish Centre Derby",
         "category": "Open Mic",
-        "notes": "",
-        "date": "2025-11-16",
-        "startTime": "16:00:00",
-        "endTime": "19:30:00"
+        "notes": "Not sure of the time",
+        "date": "2025-11-14",
+        "startTime": "00:00:00",
+        "endTime": null
     },
     {
         "id": "f3625eb5-5aa3-32f7-bfda-6d1f6fe32c27",
@@ -277,6 +277,15 @@ const eventsData = [
         "date": "2025-11-16",
         "startTime": "16:00:00",
         "endTime": "20:00:00"
+    },
+    {
+        "id": "ea491e72-99a9-308b-9d6c-ff8c9a91e954",
+        "name": "Electric Daisy Open Mic",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-16",
+        "startTime": "16:00:00",
+        "endTime": "19:30:00"
     },
     {
         "id": "64e4e17d-3e49-33f7-b489-5c0f685c4def",
@@ -423,15 +432,6 @@ const eventsData = [
         "endTime": "23:00:00"
     },
     {
-        "id": "8e136dcf-ee0b-3656-8795-f570452df046",
-        "name": "The Royal Telegraph Open Mic Night",
-        "category": "Open Mic",
-        "notes": "",
-        "date": "2025-11-24",
-        "startTime": "19:00:00",
-        "endTime": "22:00:00"
-    },
-    {
         "id": "7de5f533-edc1-3a61-82a8-15e7f2ea1f36",
         "name": "The Mill & Brook Long Eaton Open Mic Night",
         "category": "Open Mic",
@@ -439,6 +439,15 @@ const eventsData = [
         "date": "2025-11-24",
         "startTime": "19:00:00",
         "endTime": null
+    },
+    {
+        "id": "8e136dcf-ee0b-3656-8795-f570452df046",
+        "name": "The Royal Telegraph Open Mic Night",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-24",
+        "startTime": "19:00:00",
+        "endTime": "22:00:00"
     },
     {
         "id": "15952c1a-0da7-397a-8163-510eac185d4c",
@@ -522,19 +531,19 @@ const eventsData = [
         "endTime": null
     },
     {
-        "id": "9d30c5e4-b7d0-3b5a-a325-dc678c10d492",
-        "name": "The Prince Of Wales Open Mic Night",
+        "id": "ceccb823-46cc-3462-8a5b-cb63ed78a779",
+        "name": "Spondon Liberal Club Open Mic",
         "category": "Open Mic",
-        "notes": "Hosted by Ding & John",
+        "notes": "Not sure of the time (recurring)",
         "date": "2025-11-27",
         "startTime": "19:30:00",
         "endTime": null
     },
     {
-        "id": "ceccb823-46cc-3462-8a5b-cb63ed78a779",
-        "name": "Spondon Liberal Club Open Mic",
+        "id": "9d30c5e4-b7d0-3b5a-a325-dc678c10d492",
+        "name": "The Prince Of Wales Open Mic Night",
         "category": "Open Mic",
-        "notes": "Not sure of the time (recurring)",
+        "notes": "Hosted by Ding & John",
         "date": "2025-11-27",
         "startTime": "19:30:00",
         "endTime": null
@@ -549,15 +558,6 @@ const eventsData = [
         "endTime": null
     },
     {
-        "id": "41cf34d6-3a64-37c6-86dc-cddeb1d31554",
-        "name": "Electric Daisy Open Mic",
-        "category": "Open Mic",
-        "notes": "",
-        "date": "2025-11-30",
-        "startTime": "16:00:00",
-        "endTime": "19:30:00"
-    },
-    {
         "id": "448e24c3-23b4-392a-ad60-eb4700bbd1e9",
         "name": "The Masons - Mickleover Open Mic Night",
         "category": "Open Mic",
@@ -565,6 +565,15 @@ const eventsData = [
         "date": "2025-11-30",
         "startTime": "16:00:00",
         "endTime": "20:00:00"
+    },
+    {
+        "id": "41cf34d6-3a64-37c6-86dc-cddeb1d31554",
+        "name": "Electric Daisy Open Mic",
+        "category": "Open Mic",
+        "notes": "",
+        "date": "2025-11-30",
+        "startTime": "16:00:00",
+        "endTime": "19:30:00"
     },
     {
         "id": "14fc9305-e5b5-330c-9686-2e6d0c82184a",
