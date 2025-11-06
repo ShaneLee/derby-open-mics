@@ -58,66 +58,73 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
 
             eventsToRender.forEach(event => {
-                const formattedDate = formatDate(event.date);
-                const formattedStartTime = formatTime(event.date, event.startTime);
-                const formattedEndTime = event.endTime ? formatTime(event.date, event.endTime) : 'TBD';
-                
-                const timeDisplay = event.endTime && formattedEndTime !== 'TBD'
-                    ? `${formattedStartTime} - ${formattedEndTime}`
-                    : formattedStartTime;
+            const formattedDate = formatDate(event.date);
+            const formattedStartTime = formatTime(event.date, event.startTime);
+            const formattedEndTime = event.endTime ? formatTime(event.date, event.endTime) : 'TBD';
+            
+            const timeDisplay = event.endTime && formattedEndTime !== 'TBD'
+                ? `${formattedStartTime} - ${formattedEndTime}`
+                : formattedStartTime;
 
-                const noteText = event.notes
-                    ? (event.notes.startsWith('http') 
-                        ? `<a href="${event.notes}" target="_blank">More Info</a>`
-                        : event.notes)
-                    : '';
+            const noteText = event.notes
+                ? (event.notes.startsWith('http') 
+                    ? `<a href="${event.notes}" target="_blank">More Info</a>`
+                    : event.notes)
+                : '';
 
-                tableHTML += `
-                    <tr>
-                        <td>${event.name}</td>
-                        <td>${formattedDate}</td>
-                        <td>${timeDisplay}</td>
-                        <td>${noteText}</td>
-                    </tr>
-                `;
-            });
+            const cancelledClass = event.status === 'CANCELLED' ? 'class="cancelled"' : '';
+            const cancelledLabel = event.status === 'CANCELLED' ? '<span class="cancelled-label">CANCELLED</span> ' : '';
 
-            tableHTML += '</tbody>';
-            table.innerHTML = tableHTML;
-            container.appendChild(table);
+            tableHTML += `
+                <tr ${cancelledClass}>
+                    <td>${cancelledLabel}${event.name}</td>
+                    <td>${formattedDate}</td>
+                    <td>${timeDisplay}</td>
+                    <td>${noteText}</td>
+                </tr>
+            `;
+        });
+
+        tableHTML += '</tbody>';
+        table.innerHTML = tableHTML;
+        container.appendChild(table);
 
         } else {
             container.classList.remove('table-view');
 
             eventsToRender.forEach(event => {
-                const eventCard = document.createElement('div');
-                eventCard.className = 'event-card';
+            const eventCard = document.createElement('div');
+            eventCard.className = `event-card${event.status === 'CANCELLED' ? ' cancelled' : ''}`;
 
-                const formattedDate = formatDate(event.date);
+            const formattedDate = formatDate(event.date);
+            const formattedStartTime = formatTime(event.date, event.startTime);
+            const formattedEndTime = event.endTime ? formatTime(event.date, event.endTime) : 'TBD';
+            
+            const timeDisplay = event.endTime && formattedEndTime !== 'TBD'
+                ? `${formattedStartTime} - ${formattedEndTime}`
+                : formattedStartTime;
+
+            let cardContent = '';
+            if (event.status === 'CANCELLED') {
+                cardContent += '<span class="cancelled-label">CANCELLED</span>';
+            }
+
+            cardContent += `
+                <h2>${event.name}</h2>
+                <p><strong>Date:</strong> ${formattedDate}</p>
+                <p><strong>Time:</strong> ${timeDisplay}</p>
+            `;
+
+            if (event.notes) {
+                const noteText = event.notes.startsWith('http') 
+                    ? `<a href="${event.notes}" target="_blank">More Info</a>`
+                    : event.notes;
                 
-                const formattedStartTime = formatTime(event.date, event.startTime);
-                const formattedEndTime = event.endTime ? formatTime(event.date, event.endTime) : 'TBD';
-                
-                const timeDisplay = event.endTime && formattedEndTime !== 'TBD'
-                    ? `${formattedStartTime} - ${formattedEndTime}`
-                    : formattedStartTime;
+                cardContent += `<div class="notes"><strong>Notes:</strong> ${noteText}</div>`;
+            }
 
-                let cardContent = `
-                    <h2>${event.name}</h2>
-                    <p><strong>Date:</strong> ${formattedDate}</p>
-                    <p><strong>Time:</strong> ${timeDisplay}</p>
-                `;
-
-                if (event.notes) {
-                    const noteText = event.notes.startsWith('http') 
-                        ? `<a href="${event.notes}" target="_blank">More Info</a>`
-                        : event.notes;
-                    
-                    cardContent += `<div class="notes"><strong>Notes:</strong> ${noteText}</div>`;
-                }
-
-                eventCard.innerHTML = cardContent;
-                container.appendChild(eventCard);
+            eventCard.innerHTML = cardContent;
+            container.appendChild(eventCard);
             });
         }
     };
