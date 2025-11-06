@@ -72,8 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     : event.notes)
                 : '';
 
-            const cancelledClass = event.status === 'CANCELLED' ? 'class="cancelled"' : '';
-            const cancelledLabel = event.status === 'CANCELLED' ? '<span class="cancelled-label">CANCELLED</span> ' : '';
+            const cancelledClass = event.status === 'CANCELLED' || event.status == 'INACTIVE' ? 'class="cancelled"' : '';
+            let cancelledLabel = event.status === 'CANCELLED' ? '<span class="cancelled-label">CANCELLED</span> ' : '';
+            cancelledLabel = event.status === 'INACTIVE' ? '<span class="cancelled-label">INACTIVE</span> ' : '';
 
             tableHTML += `
                 <tr ${cancelledClass}>
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             eventsToRender.forEach(event => {
             const eventCard = document.createElement('div');
-            eventCard.className = `event-card${event.status === 'CANCELLED' ? ' cancelled' : ''}`;
+            eventCard.className = `event-card${event.status === 'CANCELLED' || event.status === 'INACTIVE' ? ' cancelled' : ''}`;
 
             const formattedDate = formatDate(event.date);
             const formattedStartTime = formatTime(event.date, event.startTime);
@@ -107,6 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let cardContent = '';
             if (event.status === 'CANCELLED') {
                 cardContent += '<span class="cancelled-label">CANCELLED</span>';
+            }
+            if (event.status === 'INACTIVE') {
+                cardContent += '<span class="cancelled-label">INACTIVE</span>';
             }
 
             cardContent += `
