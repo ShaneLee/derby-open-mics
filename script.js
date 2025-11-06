@@ -1,3 +1,23 @@
+function statusToTypes(status) {
+    switch (status || '') {
+        case 'CANCELLED': return {
+            label: '<span class="cancelled-label">CANCELLED</span>',
+            class: 'class="cancelled"',
+            eventCardClass: ' cancelled'
+        };
+        case 'INACTIVE': return {
+            label: '<span class="cancelled-label">INACTIVE</span>',
+            class: 'class="cancelled"',
+            eventCardClass: ' cancelled'
+        };
+        default: return {
+            label: '',
+            class: '',
+            eventCardClass: ''
+        };
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('events-container');
     const dateFilter = document.getElementById('dateFilter');
@@ -72,9 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     : event.notes)
                 : '';
 
-            const cancelledClass = event.status === 'CANCELLED' || event.status == 'INACTIVE' ? 'class="cancelled"' : '';
-            let cancelledLabel = event.status === 'CANCELLED' ? '<span class="cancelled-label">CANCELLED</span> ' : '';
-            cancelledLabel = event.status === 'INACTIVE' ? '<span class="cancelled-label">INACTIVE</span> ' : '';
+            const cancelledClass = statusToTypes(event.status)?.class
+            const cancelledLabel = statusToTypes(event.status)?.label
 
             tableHTML += `
                 <tr ${cancelledClass}>
@@ -95,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             eventsToRender.forEach(event => {
             const eventCard = document.createElement('div');
-            eventCard.className = `event-card${event.status === 'CANCELLED' || event.status === 'INACTIVE' ? ' cancelled' : ''}`;
+            eventCard.className = `event-card${statusToTypes(event.status)?.eventCardClass || ''}`;
 
             const formattedDate = formatDate(event.date);
             const formattedStartTime = formatTime(event.date, event.startTime);
@@ -106,12 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 : formattedStartTime;
 
             let cardContent = '';
-            if (event.status === 'CANCELLED') {
-                cardContent += '<span class="cancelled-label">CANCELLED</span>';
-            }
-            if (event.status === 'INACTIVE') {
-                cardContent += '<span class="cancelled-label">INACTIVE</span>';
-            }
+
+            cardContent += statusToTypes(event.status)?.label;
 
             cardContent += `
                 <h2>${event.name}</h2>
