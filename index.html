@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicons/favicon.svg" />
     <link rel="shortcut icon" href="favicons/favicon.ico" />
@@ -12,6 +14,34 @@
     <link rel="manifest" href="/site.webmanifest" />   <meta name="description" content="Find a comprehensive list of upcoming open mic nights in and around Derby. Your guide to live music and performance opportunities in the local area.">
     <title>Upcoming Open Mics in Derby</title>
     <style>
+        #map-view {
+            height: 600px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-marker-popup h3 {
+            margin: 0 0 5px 0;
+            color: #0056b3;
+        }
+        
+        .map-marker-popup p {
+            margin: 2px 0;
+        }
+        .leaflet-popup-content-wrapper.cancelled,
+        .leaflet-popup-content-wrapper.inactive {
+            border-left: 5px solid #dc3545;
+        }
+
+        .map-marker-popup .cancelled-label,
+        .map-marker-popup .inactive-label {
+            margin-bottom: 8px;
+            display: block;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -192,8 +222,14 @@
           "name": "The Masons - Mickleover",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+            "postalCode": "DE3 0DL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9039124,
+            "longitude": -1.5488255
           }
         },
         "organizer": {
@@ -216,8 +252,14 @@
           "name": "Blacksmiths Lounge",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "19-20 Sadler Gate, Derby DE1 3NH",
+            "postalCode": "DE1 3NH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8973808,
+            "longitude": -1.5113314
           }
         },
         "organizer": {
@@ -240,8 +282,14 @@
           "name": "Wilmot Arms, Chaddesden",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "2 Morley Rd, Chaddesden, Derby DE21 4QU",
+            "postalCode": "DE21 4QU"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9304462,
+            "longitude": -1.4370677
           }
         },
         "organizer": {
@@ -264,8 +312,14 @@
           "name": "The Shakespeare",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "16 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.923349,
+            "longitude": -1.4835134
           }
         },
         "organizer": {
@@ -288,8 +342,14 @@
           "name": "The Royal Telegraph",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "73 London Rd, Derby DE1 2QS",
+            "postalCode": "DE1 2QS"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9179022,
+            "longitude": -1.4705323
           }
         },
         "organizer": {
@@ -312,8 +372,14 @@
           "name": "The Mill & Brook Long Eaton",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "101 Derby Rd, Long Eaton, Nottingham NG10 4QB",
+            "postalCode": "NG10 4QB"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9001453,
+            "longitude": -1.2781367
           }
         },
         "organizer": {
@@ -336,8 +402,14 @@
           "name": "The Hawk and Buckle Etwall",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "46 Main St, Etwall, Derby DE65 6LP",
+            "postalCode": "DE65 6LP"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8847674,
+            "longitude": -1.6033604
           }
         },
         "organizer": {
@@ -359,8 +431,14 @@
           "name": "Love Your Sound",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "8 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9234487,
+            "longitude": -1.4807886
           }
         },
         "organizer": {
@@ -384,8 +462,14 @@
           "name": "New Zealand Arms",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "2 Langley St, Derby DE22 3GL",
+            "postalCode": "DE22 3GL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9257509,
+            "longitude": -1.501286
           }
         },
         "organizer": {
@@ -408,8 +492,14 @@
           "name": "The Greyhound Friar Gate",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "75-76 Friar Gate, Derby DE1 1FN",
+            "postalCode": "DE1 1FN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9246833,
+            "longitude": -1.4913803
           }
         },
         "organizer": {
@@ -424,30 +514,6 @@
       "position": 11,
       "item": {
         "@type": "Event",
-        "name": "The Royal Standard Open Mic Night",
-        "startDate": "2025-11-12T19:30:00",
-        "location": {
-          "@type": "Place",
-          "name": "The Royal Standard",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
-          }
-        },
-        "organizer": {
-          "@type": "Person",
-          "name": "Shane Lee"
-        },
-        "eventStatus": "https://schema.org/EventScheduled",
-        "description": "Hosted by Ding"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 12,
-      "item": {
-        "@type": "Event",
         "name": "The Creaky Floorboard Open Mic",
         "startDate": "2025-11-12T19:30:00",
         "location": {
@@ -455,8 +521,14 @@
           "name": "The Creaky Floorboard",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "179 Kedleston Rd, Derby DE22 1FT",
+            "postalCode": "DE22 1FT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9326474,
+            "longitude": -1.4983343
           }
         },
         "organizer": {
@@ -465,6 +537,36 @@
         },
         "eventStatus": "https://schema.org/EventScheduled",
         "endDate": "2025-11-12T23:00:00"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "Event",
+        "name": "The Royal Standard Open Mic Night",
+        "startDate": "2025-11-12T19:30:00",
+        "location": {
+          "@type": "Place",
+          "name": "The Royal Standard",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "streetAddress": "1 Derwent St, Derby DE1 2ED",
+            "postalCode": "DE1 2ED"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9242528,
+            "longitude": -1.4758386
+          }
+        },
+        "organizer": {
+          "@type": "Person",
+          "name": "Shane Lee"
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "description": "Hosted by Ding"
       }
     },
     {
@@ -479,8 +581,14 @@
           "name": "Darley Abbey Wines",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "The Stables, Darley Abbey Mills, Darley Abbey, Derby DE22 1DZ",
+            "postalCode": "DE22 1DZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9441321,
+            "longitude": -1.4775877
           }
         },
         "organizer": {
@@ -504,8 +612,9 @@
           "name": "Dubrek",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "",
+            "postalCode": ""
           }
         },
         "organizer": {
@@ -528,8 +637,14 @@
           "name": "The Prince Of Wales",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "7 Chapel St, Spondon, Derby DE21 7JP",
+            "postalCode": "DE21 7JP"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9211533,
+            "longitude": -1.4086124
           }
         },
         "organizer": {
@@ -552,8 +667,14 @@
           "name": "The Maypole",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "42 Brook St, Derby DE1 3PH",
+            "postalCode": "DE1 3PH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9242523,
+            "longitude": -1.4835902
           }
         },
         "organizer": {
@@ -576,8 +697,9 @@
           "name": "Open Mic Irish Centre Derby",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "",
+            "postalCode": ""
           }
         },
         "organizer": {
@@ -593,30 +715,6 @@
       "position": 18,
       "item": {
         "@type": "Event",
-        "name": "The Masons - Mickleover Open Mic Night",
-        "startDate": "2025-11-16T16:00:00",
-        "location": {
-          "@type": "Place",
-          "name": "The Masons - Mickleover",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
-          }
-        },
-        "organizer": {
-          "@type": "Person",
-          "name": "Shane Lee"
-        },
-        "eventStatus": "https://schema.org/EventScheduled",
-        "endDate": "2025-11-16T20:00:00"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 19,
-      "item": {
-        "@type": "Event",
         "name": "Electric Daisy Open Mic",
         "startDate": "2025-11-16T16:00:00",
         "location": {
@@ -624,8 +722,14 @@
           "name": "Electric Daisy",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "1-4 Bold Ln, Derby DE1 3NT",
+            "postalCode": "DE1 3NT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9235277,
+            "longitude": -1.4826854
           }
         },
         "organizer": {
@@ -634,6 +738,36 @@
         },
         "eventStatus": "https://schema.org/EventScheduled",
         "endDate": "2025-11-16T19:30:00"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "item": {
+        "@type": "Event",
+        "name": "The Masons - Mickleover Open Mic Night",
+        "startDate": "2025-11-16T16:00:00",
+        "location": {
+          "@type": "Place",
+          "name": "The Masons - Mickleover",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "streetAddress": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+            "postalCode": "DE3 0DL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9039124,
+            "longitude": -1.5488255
+          }
+        },
+        "organizer": {
+          "@type": "Person",
+          "name": "Shane Lee"
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "endDate": "2025-11-16T20:00:00"
       }
     },
     {
@@ -648,8 +782,14 @@
           "name": "Blacksmiths Lounge",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "19-20 Sadler Gate, Derby DE1 3NH",
+            "postalCode": "DE1 3NH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8973808,
+            "longitude": -1.5113314
           }
         },
         "organizer": {
@@ -672,8 +812,14 @@
           "name": "Jubilee Club Chaddesden",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "155 Chaddesden Ln, Chaddesden, Derby DE21 6LJ",
+            "postalCode": "DE21 6LJ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9304462,
+            "longitude": -1.4370677
           }
         },
         "organizer": {
@@ -696,8 +842,14 @@
           "name": "The Shakespeare",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "16 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.923349,
+            "longitude": -1.4835134
           }
         },
         "organizer": {
@@ -720,8 +872,14 @@
           "name": "The Royal Telegraph",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "73 London Rd, Derby DE1 2QS",
+            "postalCode": "DE1 2QS"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9179022,
+            "longitude": -1.4705323
           }
         },
         "organizer": {
@@ -744,8 +902,14 @@
           "name": "The Mill & Brook Long Eaton",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "101 Derby Rd, Long Eaton, Nottingham NG10 4QB",
+            "postalCode": "NG10 4QB"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9001453,
+            "longitude": -1.2781367
           }
         },
         "organizer": {
@@ -768,8 +932,14 @@
           "name": "The Hawk and Buckle Etwall",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "46 Main St, Etwall, Derby DE65 6LP",
+            "postalCode": "DE65 6LP"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8847674,
+            "longitude": -1.6033604
           }
         },
         "organizer": {
@@ -791,8 +961,14 @@
           "name": "Love Your Sound",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "8 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9234487,
+            "longitude": -1.4807886
           }
         },
         "organizer": {
@@ -816,8 +992,14 @@
           "name": "The Creaky Floorboard",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "179 Kedleston Rd, Derby DE22 1FT",
+            "postalCode": "DE22 1FT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9326474,
+            "longitude": -1.4983343
           }
         },
         "organizer": {
@@ -840,8 +1022,14 @@
           "name": "Darley Abbey Wines",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "The Stables, Darley Abbey Mills, Darley Abbey, Derby DE22 1DZ",
+            "postalCode": "DE22 1DZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9441321,
+            "longitude": -1.4775877
           }
         },
         "organizer": {
@@ -865,8 +1053,9 @@
           "name": "Dubrek",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "",
+            "postalCode": ""
           }
         },
         "organizer": {
@@ -889,8 +1078,14 @@
           "name": "The Prince Of Wales",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "7 Chapel St, Spondon, Derby DE21 7JP",
+            "postalCode": "DE21 7JP"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9211533,
+            "longitude": -1.4086124
           }
         },
         "organizer": {
@@ -913,8 +1108,14 @@
           "name": "The Maypole",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "42 Brook St, Derby DE1 3PH",
+            "postalCode": "DE1 3PH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9242523,
+            "longitude": -1.4835902
           }
         },
         "organizer": {
@@ -937,8 +1138,14 @@
           "name": "The Masons - Mickleover",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+            "postalCode": "DE3 0DL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9039124,
+            "longitude": -1.5488255
           }
         },
         "organizer": {
@@ -961,8 +1168,14 @@
           "name": "Blacksmiths Lounge",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "19-20 Sadler Gate, Derby DE1 3NH",
+            "postalCode": "DE1 3NH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8973808,
+            "longitude": -1.5113314
           }
         },
         "organizer": {
@@ -985,8 +1198,14 @@
           "name": "Wilmot Arms, Chaddesden",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "2 Morley Rd, Chaddesden, Derby DE21 4QU",
+            "postalCode": "DE21 4QU"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9304462,
+            "longitude": -1.4370677
           }
         },
         "organizer": {
@@ -1009,8 +1228,14 @@
           "name": "The Shakespeare",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "16 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.923349,
+            "longitude": -1.4835134
           }
         },
         "organizer": {
@@ -1026,30 +1251,6 @@
       "position": 36,
       "item": {
         "@type": "Event",
-        "name": "The Mill & Brook Long Eaton Open Mic Night",
-        "startDate": "2025-11-24T19:00:00",
-        "location": {
-          "@type": "Place",
-          "name": "The Mill & Brook Long Eaton",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
-          }
-        },
-        "organizer": {
-          "@type": "Person",
-          "name": "Shane Lee"
-        },
-        "eventStatus": "https://schema.org/EventScheduled",
-        "description": "https://www.facebook.com/MillandBrook"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 37,
-      "item": {
-        "@type": "Event",
         "name": "The Royal Telegraph Open Mic Night",
         "startDate": "2025-11-24T19:00:00",
         "location": {
@@ -1057,8 +1258,14 @@
           "name": "The Royal Telegraph",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "73 London Rd, Derby DE1 2QS",
+            "postalCode": "DE1 2QS"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9179022,
+            "longitude": -1.4705323
           }
         },
         "organizer": {
@@ -1067,6 +1274,36 @@
         },
         "eventStatus": "https://schema.org/EventScheduled",
         "endDate": "2025-11-24T22:00:00"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 37,
+      "item": {
+        "@type": "Event",
+        "name": "The Mill & Brook Long Eaton Open Mic Night",
+        "startDate": "2025-11-24T19:00:00",
+        "location": {
+          "@type": "Place",
+          "name": "The Mill & Brook Long Eaton",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "streetAddress": "101 Derby Rd, Long Eaton, Nottingham NG10 4QB",
+            "postalCode": "NG10 4QB"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9001453,
+            "longitude": -1.2781367
+          }
+        },
+        "organizer": {
+          "@type": "Person",
+          "name": "Shane Lee"
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "description": "https://www.facebook.com/MillandBrook"
       }
     },
     {
@@ -1081,8 +1318,14 @@
           "name": "The Hawk and Buckle Etwall",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "46 Main St, Etwall, Derby DE65 6LP",
+            "postalCode": "DE65 6LP"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8847674,
+            "longitude": -1.6033604
           }
         },
         "organizer": {
@@ -1104,8 +1347,14 @@
           "name": "Love Your Sound",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "8 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9234487,
+            "longitude": -1.4807886
           }
         },
         "organizer": {
@@ -1129,8 +1378,14 @@
           "name": "Coach & Horses, Draycott Jam Night",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "Victoria Rd, Draycott, Derby DE72 3PS",
+            "postalCode": "DE72 3PS"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8943101,
+            "longitude": -1.3430849
           }
         },
         "organizer": {
@@ -1152,8 +1407,14 @@
           "name": "The Greyhound Friar Gate",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "75-76 Friar Gate, Derby DE1 1FN",
+            "postalCode": "DE1 1FN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9246833,
+            "longitude": -1.4913803
           }
         },
         "organizer": {
@@ -1168,30 +1429,6 @@
       "position": 42,
       "item": {
         "@type": "Event",
-        "name": "The Creaky Floorboard Open Mic",
-        "startDate": "2025-11-26T19:30:00",
-        "location": {
-          "@type": "Place",
-          "name": "The Creaky Floorboard",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
-          }
-        },
-        "organizer": {
-          "@type": "Person",
-          "name": "Shane Lee"
-        },
-        "eventStatus": "https://schema.org/EventScheduled",
-        "endDate": "2025-11-26T23:00:00"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 43,
-      "item": {
-        "@type": "Event",
         "name": "The Royal Standard Open Mic Night",
         "startDate": "2025-11-26T19:30:00",
         "location": {
@@ -1199,8 +1436,14 @@
           "name": "The Royal Standard",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "1 Derwent St, Derby DE1 2ED",
+            "postalCode": "DE1 2ED"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9242528,
+            "longitude": -1.4758386
           }
         },
         "organizer": {
@@ -1209,6 +1452,36 @@
         },
         "eventStatus": "https://schema.org/EventScheduled",
         "description": "Hosted by Ding"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 43,
+      "item": {
+        "@type": "Event",
+        "name": "The Creaky Floorboard Open Mic",
+        "startDate": "2025-11-26T19:30:00",
+        "location": {
+          "@type": "Place",
+          "name": "The Creaky Floorboard",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "streetAddress": "179 Kedleston Rd, Derby DE22 1FT",
+            "postalCode": "DE22 1FT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9326474,
+            "longitude": -1.4983343
+          }
+        },
+        "organizer": {
+          "@type": "Person",
+          "name": "Shane Lee"
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "endDate": "2025-11-26T23:00:00"
       }
     },
     {
@@ -1223,8 +1496,14 @@
           "name": "Bless",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "Chapel St, Derby DE1 3GU",
+            "postalCode": "DE1 3GU"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9257075,
+            "longitude": -1.4854264
           }
         },
         "organizer": {
@@ -1248,8 +1527,14 @@
           "name": "Darley Abbey Wines",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "The Stables, Darley Abbey Mills, Darley Abbey, Derby DE22 1DZ",
+            "postalCode": "DE22 1DZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9441321,
+            "longitude": -1.4775877
           }
         },
         "organizer": {
@@ -1273,8 +1558,14 @@
           "name": "Derby Market Hall",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "Market Hall, Tennant St, Derby DE1 2DB",
+            "postalCode": "DE1 2DB"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9227592,
+            "longitude": -1.4790597
           }
         },
         "organizer": {
@@ -1297,8 +1588,9 @@
           "name": "Dubrek",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "",
+            "postalCode": ""
           }
         },
         "organizer": {
@@ -1314,30 +1606,6 @@
       "position": 48,
       "item": {
         "@type": "Event",
-        "name": "The Prince Of Wales Open Mic Night",
-        "startDate": "2025-11-27T19:30:00",
-        "location": {
-          "@type": "Place",
-          "name": "The Prince Of Wales",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
-          }
-        },
-        "organizer": {
-          "@type": "Person",
-          "name": "Shane Lee"
-        },
-        "eventStatus": "https://schema.org/EventScheduled",
-        "description": "Hosted by Ding & John"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 49,
-      "item": {
-        "@type": "Event",
         "name": "Spondon Liberal Club Open Mic",
         "startDate": "2025-11-27T19:30:00",
         "location": {
@@ -1345,8 +1613,14 @@
           "name": "Spondon Liberal Club",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "4 Moor St, Spondon, Derby DE21 7EA",
+            "postalCode": "DE21 7EA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9211532,
+            "longitude": -1.4053424
           }
         },
         "organizer": {
@@ -1355,6 +1629,36 @@
         },
         "eventStatus": "https://schema.org/EventCancelled",
         "endDate": "2025-11-27T22:00:00"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 49,
+      "item": {
+        "@type": "Event",
+        "name": "The Prince Of Wales Open Mic Night",
+        "startDate": "2025-11-27T19:30:00",
+        "location": {
+          "@type": "Place",
+          "name": "The Prince Of Wales",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "streetAddress": "7 Chapel St, Spondon, Derby DE21 7JP",
+            "postalCode": "DE21 7JP"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9211533,
+            "longitude": -1.4086124
+          }
+        },
+        "organizer": {
+          "@type": "Person",
+          "name": "Shane Lee"
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "description": "Hosted by Ding & John"
       }
     },
     {
@@ -1369,8 +1673,14 @@
           "name": "The Maypole",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "42 Brook St, Derby DE1 3PH",
+            "postalCode": "DE1 3PH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9242523,
+            "longitude": -1.4835902
           }
         },
         "organizer": {
@@ -1393,8 +1703,14 @@
           "name": "Electric Daisy",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "1-4 Bold Ln, Derby DE1 3NT",
+            "postalCode": "DE1 3NT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9235277,
+            "longitude": -1.4826854
           }
         },
         "organizer": {
@@ -1417,8 +1733,14 @@
           "name": "The Masons - Mickleover",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+            "postalCode": "DE3 0DL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9039124,
+            "longitude": -1.5488255
           }
         },
         "organizer": {
@@ -1441,8 +1763,14 @@
           "name": "Blacksmiths Lounge",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "19-20 Sadler Gate, Derby DE1 3NH",
+            "postalCode": "DE1 3NH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8973808,
+            "longitude": -1.5113314
           }
         },
         "organizer": {
@@ -1465,8 +1793,14 @@
           "name": "Jubilee Club Chaddesden",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "155 Chaddesden Ln, Chaddesden, Derby DE21 6LJ",
+            "postalCode": "DE21 6LJ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9304462,
+            "longitude": -1.4370677
           }
         },
         "organizer": {
@@ -1489,8 +1823,14 @@
           "name": "The Shakespeare",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "16 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.923349,
+            "longitude": -1.4835134
           }
         },
         "organizer": {
@@ -1513,8 +1853,14 @@
           "name": "The Royal Telegraph",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "73 London Rd, Derby DE1 2QS",
+            "postalCode": "DE1 2QS"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9179022,
+            "longitude": -1.4705323
           }
         },
         "organizer": {
@@ -1537,8 +1883,14 @@
           "name": "The Mill & Brook Long Eaton",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "101 Derby Rd, Long Eaton, Nottingham NG10 4QB",
+            "postalCode": "NG10 4QB"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9001453,
+            "longitude": -1.2781367
           }
         },
         "organizer": {
@@ -1561,8 +1913,14 @@
           "name": "The Hawk and Buckle Etwall",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "46 Main St, Etwall, Derby DE65 6LP",
+            "postalCode": "DE65 6LP"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8847674,
+            "longitude": -1.6033604
           }
         },
         "organizer": {
@@ -1584,8 +1942,14 @@
           "name": "Love Your Sound",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "8 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9234487,
+            "longitude": -1.4807886
           }
         },
         "organizer": {
@@ -1609,8 +1973,14 @@
           "name": "The Creaky Floorboard",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "179 Kedleston Rd, Derby DE22 1FT",
+            "postalCode": "DE22 1FT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9326474,
+            "longitude": -1.4983343
           }
         },
         "organizer": {
@@ -1633,8 +2003,14 @@
           "name": "Darley Abbey Wines",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "The Stables, Darley Abbey Mills, Darley Abbey, Derby DE22 1DZ",
+            "postalCode": "DE22 1DZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9441321,
+            "longitude": -1.4775877
           }
         },
         "organizer": {
@@ -1658,8 +2034,14 @@
           "name": "Dubrek",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "67 Bridge St, Derby DE1 3LB",
+            "postalCode": "DE1 3LB"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9265906,
+            "longitude": -1.4888062
           }
         },
         "organizer": {
@@ -1682,8 +2064,14 @@
           "name": "The Prince Of Wales",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "7 Chapel St, Spondon, Derby DE21 7JP",
+            "postalCode": "DE21 7JP"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9211533,
+            "longitude": -1.4086124
           }
         },
         "organizer": {
@@ -1706,8 +2094,14 @@
           "name": "The Maypole",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "42 Brook St, Derby DE1 3PH",
+            "postalCode": "DE1 3PH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9242523,
+            "longitude": -1.4835902
           }
         },
         "organizer": {
@@ -1730,8 +2124,14 @@
           "name": "The Masons - Mickleover",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+            "postalCode": "DE3 0DL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9039124,
+            "longitude": -1.5488255
           }
         },
         "organizer": {
@@ -1754,8 +2154,14 @@
           "name": "Blacksmiths Lounge",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "19-20 Sadler Gate, Derby DE1 3NH",
+            "postalCode": "DE1 3NH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.8973808,
+            "longitude": -1.5113314
           }
         },
         "organizer": {
@@ -1778,8 +2184,14 @@
           "name": "Wilmot Arms, Chaddesden",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "2 Morley Rd, Chaddesden, Derby DE21 4QU",
+            "postalCode": "DE21 4QU"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.9304462,
+            "longitude": -1.4370677
           }
         },
         "organizer": {
@@ -1802,8 +2214,14 @@
           "name": "The Shakespeare",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Derby",
-            "addressCountry": "GB"
+            "addressCountry": "GB",
+            "streetAddress": "16 Sadler Gate, Derby DE1 3NF",
+            "postalCode": "DE1 3NF"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.923349,
+            "longitude": -1.4835134
           }
         },
         "organizer": {
@@ -1827,7 +2245,10 @@
         <button id="clearFilter">Clear Filter</button>
         <button id="filterToday">Filter for Today</button>
         <button id="toggleView">Switch to Table View</button>
+        <button id="toggleMapView">Show Map View</button>
     </div>
+
+    <div id="map-view"></div> 
 
     <div id="events-container"><!-- Content dynamically rendered by embedded script --></div>
 
@@ -1854,7 +2275,13 @@
     "date": "2025-11-09",
     "startTime": "16:00:00",
     "endTime": "20:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9039124,
+      "lng": -1.5488255,
+      "address": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+      "postcode": "DE3 0DL"
+    }
   },
   {
     "id": "68257c00-73f0-3646-bb8a-4abef83636aa",
@@ -1864,7 +2291,13 @@
     "date": "2025-11-09",
     "startTime": "17:30:00",
     "endTime": "19:30:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8973808,
+      "lng": -1.5113314,
+      "address": "19-20 Sadler Gate, Derby DE1 3NH",
+      "postcode": "DE1 3NH"
+    }
   },
   {
     "id": "b166fb55-2264-313e-bedf-4e18423e98a5",
@@ -1874,7 +2307,13 @@
     "date": "2025-11-09",
     "startTime": "18:00:00",
     "endTime": "22:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9304462,
+      "lng": -1.4370677,
+      "address": "2 Morley Rd, Chaddesden, Derby DE21 4QU",
+      "postcode": "DE21 4QU"
+    }
   },
   {
     "id": "b9167b63-0adf-3f30-b69b-54862bb9d170",
@@ -1884,7 +2323,13 @@
     "date": "2025-11-09",
     "startTime": "20:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.923349,
+      "lng": -1.4835134,
+      "address": "16 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   },
   {
     "id": "a508d04b-1cd0-34b7-9e2c-6b8e2c0c58b7",
@@ -1894,7 +2339,13 @@
     "date": "2025-11-10",
     "startTime": "19:00:00",
     "endTime": "22:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9179022,
+      "lng": -1.4705323,
+      "address": "73 London Rd, Derby DE1 2QS",
+      "postcode": "DE1 2QS"
+    }
   },
   {
     "id": "2751ef26-3861-3f5a-a1bb-202f2d8ec440",
@@ -1904,7 +2355,13 @@
     "date": "2025-11-10",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9001453,
+      "lng": -1.2781367,
+      "address": "101 Derby Rd, Long Eaton, Nottingham NG10 4QB",
+      "postcode": "NG10 4QB"
+    }
   },
   {
     "id": "3a5c3f9b-4e3e-3430-a180-3d4b1d0b5542",
@@ -1914,7 +2371,13 @@
     "date": "2025-11-10",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8847674,
+      "lng": -1.6033604,
+      "address": "46 Main St, Etwall, Derby DE65 6LP",
+      "postcode": "DE65 6LP"
+    }
   },
   {
     "id": "cad874fa-2a03-33d3-a9ba-57049ef81e14",
@@ -1924,7 +2387,13 @@
     "date": "2025-11-11",
     "startTime": "19:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9234487,
+      "lng": -1.4807886,
+      "address": "8 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   },
   {
     "id": "a121a147-9cac-31ea-9563-eac9765b80fa",
@@ -1934,7 +2403,13 @@
     "date": "2025-11-11",
     "startTime": "19:30:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9257509,
+      "lng": -1.501286,
+      "address": "2 Langley St, Derby DE22 3GL",
+      "postcode": "DE22 3GL"
+    }
   },
   {
     "id": "3476713b-6612-333f-a1f1-9f1c48929a8b",
@@ -1944,17 +2419,13 @@
     "date": "2025-11-12",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
-  },
-  {
-    "id": "caf5d221-f78d-36e6-9023-481ea86db384",
-    "name": "The Royal Standard Open Mic Night",
-    "category": "Open Mic",
-    "notes": "Hosted by Ding",
-    "date": "2025-11-12",
-    "startTime": "19:30:00",
-    "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9246833,
+      "lng": -1.4913803,
+      "address": "75-76 Friar Gate, Derby DE1 1FN",
+      "postcode": "DE1 1FN"
+    }
   },
   {
     "id": "088a4dfd-261c-3c71-896a-08226b182661",
@@ -1964,7 +2435,29 @@
     "date": "2025-11-12",
     "startTime": "19:30:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9326474,
+      "lng": -1.4983343,
+      "address": "179 Kedleston Rd, Derby DE22 1FT",
+      "postcode": "DE22 1FT"
+    }
+  },
+  {
+    "id": "caf5d221-f78d-36e6-9023-481ea86db384",
+    "name": "The Royal Standard Open Mic Night",
+    "category": "Open Mic",
+    "notes": "Hosted by Ding",
+    "date": "2025-11-12",
+    "startTime": "19:30:00",
+    "endTime": null,
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9242528,
+      "lng": -1.4758386,
+      "address": "1 Derwent St, Derby DE1 2ED",
+      "postcode": "DE1 2ED"
+    }
   },
   {
     "id": "f8f3ce2f-c7f3-35c1-a9eb-468a0ea6fadc",
@@ -1974,7 +2467,13 @@
     "date": "2025-11-13",
     "startTime": "17:00:00",
     "endTime": "23:00:00",
-    "status": "INACTIVE"
+    "status": "INACTIVE",
+    "location": {
+      "lat": 52.9441321,
+      "lng": -1.4775877,
+      "address": "The Stables, Darley Abbey Mills, Darley Abbey, Derby DE22 1DZ",
+      "postcode": "DE22 1DZ"
+    }
   },
   {
     "id": "802497ff-4595-3028-9dbe-93f57cbe8be9",
@@ -1984,7 +2483,8 @@
     "date": "2025-11-13",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": null
   },
   {
     "id": "c5e7de2e-f319-396d-8ea3-53b8be65d729",
@@ -1994,7 +2494,13 @@
     "date": "2025-11-13",
     "startTime": "19:30:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9211533,
+      "lng": -1.4086124,
+      "address": "7 Chapel St, Spondon, Derby DE21 7JP",
+      "postcode": "DE21 7JP"
+    }
   },
   {
     "id": "78ff5daf-5021-30c5-b3e4-8f169068fe00",
@@ -2004,7 +2510,13 @@
     "date": "2025-11-13",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9242523,
+      "lng": -1.4835902,
+      "address": "42 Brook St, Derby DE1 3PH",
+      "postcode": "DE1 3PH"
+    }
   },
   {
     "id": "c2c7f104-12f4-4659-89b9-7930e7ba2ac3",
@@ -2014,17 +2526,8 @@
     "date": "2025-11-14",
     "startTime": "00:00:00",
     "endTime": null,
-    "status": "ACTIVE"
-  },
-  {
-    "id": "f3625eb5-5aa3-32f7-bfda-6d1f6fe32c27",
-    "name": "The Masons - Mickleover Open Mic Night",
-    "category": "Open Mic",
-    "notes": "",
-    "date": "2025-11-16",
-    "startTime": "16:00:00",
-    "endTime": "20:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": null
   },
   {
     "id": "ea491e72-99a9-308b-9d6c-ff8c9a91e954",
@@ -2034,7 +2537,29 @@
     "date": "2025-11-16",
     "startTime": "16:00:00",
     "endTime": "19:30:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9235277,
+      "lng": -1.4826854,
+      "address": "1-4 Bold Ln, Derby DE1 3NT",
+      "postcode": "DE1 3NT"
+    }
+  },
+  {
+    "id": "f3625eb5-5aa3-32f7-bfda-6d1f6fe32c27",
+    "name": "The Masons - Mickleover Open Mic Night",
+    "category": "Open Mic",
+    "notes": "",
+    "date": "2025-11-16",
+    "startTime": "16:00:00",
+    "endTime": "20:00:00",
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9039124,
+      "lng": -1.5488255,
+      "address": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+      "postcode": "DE3 0DL"
+    }
   },
   {
     "id": "64e4e17d-3e49-33f7-b489-5c0f685c4def",
@@ -2044,7 +2569,13 @@
     "date": "2025-11-16",
     "startTime": "17:30:00",
     "endTime": "19:30:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8973808,
+      "lng": -1.5113314,
+      "address": "19-20 Sadler Gate, Derby DE1 3NH",
+      "postcode": "DE1 3NH"
+    }
   },
   {
     "id": "e3cd0a42-dd08-3ad5-8f14-1d5e24e9c2fe",
@@ -2054,7 +2585,13 @@
     "date": "2025-11-16",
     "startTime": "18:00:00",
     "endTime": "21:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9304462,
+      "lng": -1.4370677,
+      "address": "155 Chaddesden Ln, Chaddesden, Derby DE21 6LJ",
+      "postcode": "DE21 6LJ"
+    }
   },
   {
     "id": "e706f109-afb5-38e3-abb0-7a20ffc26ba2",
@@ -2064,7 +2601,13 @@
     "date": "2025-11-16",
     "startTime": "20:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.923349,
+      "lng": -1.4835134,
+      "address": "16 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   },
   {
     "id": "4d03cbba-7a91-321b-b64e-fe317bb71bca",
@@ -2074,7 +2617,13 @@
     "date": "2025-11-17",
     "startTime": "19:00:00",
     "endTime": "22:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9179022,
+      "lng": -1.4705323,
+      "address": "73 London Rd, Derby DE1 2QS",
+      "postcode": "DE1 2QS"
+    }
   },
   {
     "id": "095c766b-6987-3b53-b558-8dcd15131111",
@@ -2084,7 +2633,13 @@
     "date": "2025-11-17",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9001453,
+      "lng": -1.2781367,
+      "address": "101 Derby Rd, Long Eaton, Nottingham NG10 4QB",
+      "postcode": "NG10 4QB"
+    }
   },
   {
     "id": "2fc94f24-ae48-34f0-9872-b6e3c8d77f8e",
@@ -2094,7 +2649,13 @@
     "date": "2025-11-17",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8847674,
+      "lng": -1.6033604,
+      "address": "46 Main St, Etwall, Derby DE65 6LP",
+      "postcode": "DE65 6LP"
+    }
   },
   {
     "id": "3a29d85b-a139-3ae3-a3e5-54860ced3312",
@@ -2104,7 +2665,13 @@
     "date": "2025-11-18",
     "startTime": "19:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9234487,
+      "lng": -1.4807886,
+      "address": "8 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   },
   {
     "id": "4d353fc9-8ef2-3d0a-86d9-d70e1f58f447",
@@ -2114,7 +2681,13 @@
     "date": "2025-11-19",
     "startTime": "19:30:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9326474,
+      "lng": -1.4983343,
+      "address": "179 Kedleston Rd, Derby DE22 1FT",
+      "postcode": "DE22 1FT"
+    }
   },
   {
     "id": "0bbff85b-46bb-3637-ae81-921a3b172cfe",
@@ -2124,7 +2697,13 @@
     "date": "2025-11-20",
     "startTime": "17:00:00",
     "endTime": "23:00:00",
-    "status": "INACTIVE"
+    "status": "INACTIVE",
+    "location": {
+      "lat": 52.9441321,
+      "lng": -1.4775877,
+      "address": "The Stables, Darley Abbey Mills, Darley Abbey, Derby DE22 1DZ",
+      "postcode": "DE22 1DZ"
+    }
   },
   {
     "id": "5e7c808c-e890-3f34-a298-1d96a47797cb",
@@ -2134,7 +2713,8 @@
     "date": "2025-11-20",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": null
   },
   {
     "id": "ef4ac782-8d3d-3d13-8b66-20e9de4b1299",
@@ -2144,7 +2724,13 @@
     "date": "2025-11-20",
     "startTime": "19:30:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9211533,
+      "lng": -1.4086124,
+      "address": "7 Chapel St, Spondon, Derby DE21 7JP",
+      "postcode": "DE21 7JP"
+    }
   },
   {
     "id": "0212c33b-fe86-3935-a497-dbffeb6f6173",
@@ -2154,7 +2740,13 @@
     "date": "2025-11-20",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9242523,
+      "lng": -1.4835902,
+      "address": "42 Brook St, Derby DE1 3PH",
+      "postcode": "DE1 3PH"
+    }
   },
   {
     "id": "08744879-42da-3492-8d3b-41712dee39fd",
@@ -2164,7 +2756,13 @@
     "date": "2025-11-23",
     "startTime": "16:00:00",
     "endTime": "20:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9039124,
+      "lng": -1.5488255,
+      "address": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+      "postcode": "DE3 0DL"
+    }
   },
   {
     "id": "64ecf5bd-03fc-37df-8b19-fc1e10378761",
@@ -2174,7 +2772,13 @@
     "date": "2025-11-23",
     "startTime": "17:30:00",
     "endTime": "19:30:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8973808,
+      "lng": -1.5113314,
+      "address": "19-20 Sadler Gate, Derby DE1 3NH",
+      "postcode": "DE1 3NH"
+    }
   },
   {
     "id": "c05d550b-f2e5-3968-adf2-03f635f1bf0e",
@@ -2184,7 +2788,13 @@
     "date": "2025-11-23",
     "startTime": "18:00:00",
     "endTime": "22:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9304462,
+      "lng": -1.4370677,
+      "address": "2 Morley Rd, Chaddesden, Derby DE21 4QU",
+      "postcode": "DE21 4QU"
+    }
   },
   {
     "id": "ebbb7fcc-2fc8-3686-9202-de8edae6ecae",
@@ -2194,17 +2804,13 @@
     "date": "2025-11-23",
     "startTime": "20:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
-  },
-  {
-    "id": "7de5f533-edc1-3a61-82a8-15e7f2ea1f36",
-    "name": "The Mill & Brook Long Eaton Open Mic Night",
-    "category": "Open Mic",
-    "notes": "https://www.facebook.com/MillandBrook",
-    "date": "2025-11-24",
-    "startTime": "19:00:00",
-    "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.923349,
+      "lng": -1.4835134,
+      "address": "16 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   },
   {
     "id": "8e136dcf-ee0b-3656-8795-f570452df046",
@@ -2214,7 +2820,29 @@
     "date": "2025-11-24",
     "startTime": "19:00:00",
     "endTime": "22:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9179022,
+      "lng": -1.4705323,
+      "address": "73 London Rd, Derby DE1 2QS",
+      "postcode": "DE1 2QS"
+    }
+  },
+  {
+    "id": "7de5f533-edc1-3a61-82a8-15e7f2ea1f36",
+    "name": "The Mill & Brook Long Eaton Open Mic Night",
+    "category": "Open Mic",
+    "notes": "https://www.facebook.com/MillandBrook",
+    "date": "2025-11-24",
+    "startTime": "19:00:00",
+    "endTime": null,
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9001453,
+      "lng": -1.2781367,
+      "address": "101 Derby Rd, Long Eaton, Nottingham NG10 4QB",
+      "postcode": "NG10 4QB"
+    }
   },
   {
     "id": "15952c1a-0da7-397a-8163-510eac185d4c",
@@ -2224,7 +2852,13 @@
     "date": "2025-11-24",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8847674,
+      "lng": -1.6033604,
+      "address": "46 Main St, Etwall, Derby DE65 6LP",
+      "postcode": "DE65 6LP"
+    }
   },
   {
     "id": "0e8ea910-d7fd-3afb-8215-a7189b0e0fbf",
@@ -2234,7 +2868,13 @@
     "date": "2025-11-25",
     "startTime": "19:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9234487,
+      "lng": -1.4807886,
+      "address": "8 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   },
   {
     "id": "a7aad349-f478-36da-b1db-3595d066b31e",
@@ -2244,7 +2884,13 @@
     "date": "2025-11-25",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8943101,
+      "lng": -1.3430849,
+      "address": "Victoria Rd, Draycott, Derby DE72 3PS",
+      "postcode": "DE72 3PS"
+    }
   },
   {
     "id": "ea7b459f-9bdd-3d3e-9617-172403df2ff9",
@@ -2254,17 +2900,13 @@
     "date": "2025-11-26",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
-  },
-  {
-    "id": "decbd76b-4081-3c4f-9c67-1b095f597b52",
-    "name": "The Creaky Floorboard Open Mic",
-    "category": "Open Mic",
-    "notes": "",
-    "date": "2025-11-26",
-    "startTime": "19:30:00",
-    "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9246833,
+      "lng": -1.4913803,
+      "address": "75-76 Friar Gate, Derby DE1 1FN",
+      "postcode": "DE1 1FN"
+    }
   },
   {
     "id": "5f9c8b01-722c-385e-b029-fbe2a53102b1",
@@ -2274,7 +2916,29 @@
     "date": "2025-11-26",
     "startTime": "19:30:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9242528,
+      "lng": -1.4758386,
+      "address": "1 Derwent St, Derby DE1 2ED",
+      "postcode": "DE1 2ED"
+    }
+  },
+  {
+    "id": "decbd76b-4081-3c4f-9c67-1b095f597b52",
+    "name": "The Creaky Floorboard Open Mic",
+    "category": "Open Mic",
+    "notes": "",
+    "date": "2025-11-26",
+    "startTime": "19:30:00",
+    "endTime": "23:00:00",
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9326474,
+      "lng": -1.4983343,
+      "address": "179 Kedleston Rd, Derby DE22 1FT",
+      "postcode": "DE22 1FT"
+    }
   },
   {
     "id": "25df76bb-a856-3097-b828-1429fc67af98",
@@ -2284,7 +2948,13 @@
     "date": "2025-11-27",
     "startTime": "00:00:00",
     "endTime": "00:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9257075,
+      "lng": -1.4854264,
+      "address": "Chapel St, Derby DE1 3GU",
+      "postcode": "DE1 3GU"
+    }
   },
   {
     "id": "8cb32fad-7d42-3d00-8727-f57c05f7b06d",
@@ -2294,7 +2964,13 @@
     "date": "2025-11-27",
     "startTime": "17:00:00",
     "endTime": "23:00:00",
-    "status": "INACTIVE"
+    "status": "INACTIVE",
+    "location": {
+      "lat": 52.9441321,
+      "lng": -1.4775877,
+      "address": "The Stables, Darley Abbey Mills, Darley Abbey, Derby DE22 1DZ",
+      "postcode": "DE22 1DZ"
+    }
   },
   {
     "id": "b5659e6c-5937-3e4b-ad0f-8eb9dfa8659c",
@@ -2304,7 +2980,13 @@
     "date": "2025-11-27",
     "startTime": "18:00:00",
     "endTime": "21:30:00",
-    "status": "CANCELLED"
+    "status": "CANCELLED",
+    "location": {
+      "lat": 52.9227592,
+      "lng": -1.4790597,
+      "address": "Market Hall, Tennant St, Derby DE1 2DB",
+      "postcode": "DE1 2DB"
+    }
   },
   {
     "id": "4806cb5e-b4d5-3960-a232-27c8110c09dc",
@@ -2314,17 +2996,8 @@
     "date": "2025-11-27",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
-  },
-  {
-    "id": "9d30c5e4-b7d0-3b5a-a325-dc678c10d492",
-    "name": "The Prince Of Wales Open Mic Night",
-    "category": "Open Mic",
-    "notes": "Hosted by Ding & John",
-    "date": "2025-11-27",
-    "startTime": "19:30:00",
-    "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": null
   },
   {
     "id": "ceccb823-46cc-3462-8a5b-cb63ed78a779",
@@ -2334,7 +3007,29 @@
     "date": "2025-11-27",
     "startTime": "19:30:00",
     "endTime": "22:00:00",
-    "status": "CANCELLED"
+    "status": "CANCELLED",
+    "location": {
+      "lat": 52.9211532,
+      "lng": -1.4053424,
+      "address": "4 Moor St, Spondon, Derby DE21 7EA",
+      "postcode": "DE21 7EA"
+    }
+  },
+  {
+    "id": "9d30c5e4-b7d0-3b5a-a325-dc678c10d492",
+    "name": "The Prince Of Wales Open Mic Night",
+    "category": "Open Mic",
+    "notes": "Hosted by Ding & John",
+    "date": "2025-11-27",
+    "startTime": "19:30:00",
+    "endTime": null,
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9211533,
+      "lng": -1.4086124,
+      "address": "7 Chapel St, Spondon, Derby DE21 7JP",
+      "postcode": "DE21 7JP"
+    }
   },
   {
     "id": "efa63658-42c8-3734-9a08-12bb846509e2",
@@ -2344,7 +3039,13 @@
     "date": "2025-11-27",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9242523,
+      "lng": -1.4835902,
+      "address": "42 Brook St, Derby DE1 3PH",
+      "postcode": "DE1 3PH"
+    }
   },
   {
     "id": "41cf34d6-3a64-37c6-86dc-cddeb1d31554",
@@ -2354,7 +3055,13 @@
     "date": "2025-11-30",
     "startTime": "16:00:00",
     "endTime": "19:30:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9235277,
+      "lng": -1.4826854,
+      "address": "1-4 Bold Ln, Derby DE1 3NT",
+      "postcode": "DE1 3NT"
+    }
   },
   {
     "id": "448e24c3-23b4-392a-ad60-eb4700bbd1e9",
@@ -2364,7 +3071,13 @@
     "date": "2025-11-30",
     "startTime": "16:00:00",
     "endTime": "20:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9039124,
+      "lng": -1.5488255,
+      "address": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+      "postcode": "DE3 0DL"
+    }
   },
   {
     "id": "14fc9305-e5b5-330c-9686-2e6d0c82184a",
@@ -2374,7 +3087,13 @@
     "date": "2025-11-30",
     "startTime": "17:30:00",
     "endTime": "19:30:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8973808,
+      "lng": -1.5113314,
+      "address": "19-20 Sadler Gate, Derby DE1 3NH",
+      "postcode": "DE1 3NH"
+    }
   },
   {
     "id": "a050fa29-03c3-3401-b31e-6ee11467e3df",
@@ -2384,7 +3103,13 @@
     "date": "2025-11-30",
     "startTime": "18:00:00",
     "endTime": "21:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9304462,
+      "lng": -1.4370677,
+      "address": "155 Chaddesden Ln, Chaddesden, Derby DE21 6LJ",
+      "postcode": "DE21 6LJ"
+    }
   },
   {
     "id": "389dcdab-8a28-3c89-bf32-5bb4fd8befd3",
@@ -2394,7 +3119,13 @@
     "date": "2025-11-30",
     "startTime": "20:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.923349,
+      "lng": -1.4835134,
+      "address": "16 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   },
   {
     "id": "ea20027d-00d4-3070-adcc-9b186668e662",
@@ -2404,7 +3135,13 @@
     "date": "2025-12-01",
     "startTime": "19:00:00",
     "endTime": "22:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9179022,
+      "lng": -1.4705323,
+      "address": "73 London Rd, Derby DE1 2QS",
+      "postcode": "DE1 2QS"
+    }
   },
   {
     "id": "b797176e-90bf-3685-b481-15c3a7a2ad35",
@@ -2414,7 +3151,13 @@
     "date": "2025-12-01",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9001453,
+      "lng": -1.2781367,
+      "address": "101 Derby Rd, Long Eaton, Nottingham NG10 4QB",
+      "postcode": "NG10 4QB"
+    }
   },
   {
     "id": "6ad37a39-4b69-308d-bc91-0e9622a8ac1a",
@@ -2424,7 +3167,13 @@
     "date": "2025-12-01",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8847674,
+      "lng": -1.6033604,
+      "address": "46 Main St, Etwall, Derby DE65 6LP",
+      "postcode": "DE65 6LP"
+    }
   },
   {
     "id": "8cab38a5-c11d-3391-991e-302f022ae971",
@@ -2434,7 +3183,13 @@
     "date": "2025-12-02",
     "startTime": "19:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9234487,
+      "lng": -1.4807886,
+      "address": "8 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   },
   {
     "id": "eace5606-cbac-3d44-b889-bcc31c770435",
@@ -2444,7 +3199,13 @@
     "date": "2025-12-03",
     "startTime": "19:30:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9326474,
+      "lng": -1.4983343,
+      "address": "179 Kedleston Rd, Derby DE22 1FT",
+      "postcode": "DE22 1FT"
+    }
   },
   {
     "id": "971e70e2-3f71-3340-85ae-333b3d7c1b80",
@@ -2454,7 +3215,13 @@
     "date": "2025-12-04",
     "startTime": "17:00:00",
     "endTime": "23:00:00",
-    "status": "INACTIVE"
+    "status": "INACTIVE",
+    "location": {
+      "lat": 52.9441321,
+      "lng": -1.4775877,
+      "address": "The Stables, Darley Abbey Mills, Darley Abbey, Derby DE22 1DZ",
+      "postcode": "DE22 1DZ"
+    }
   },
   {
     "id": "88e06d43-288a-300e-8d0c-4b1224e9e16d",
@@ -2464,7 +3231,13 @@
     "date": "2025-12-04",
     "startTime": "19:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9265906,
+      "lng": -1.4888062,
+      "address": "67 Bridge St, Derby DE1 3LB",
+      "postcode": "DE1 3LB"
+    }
   },
   {
     "id": "9318eaf2-b1d2-33ad-81f7-f1d05814ff96",
@@ -2474,7 +3247,13 @@
     "date": "2025-12-04",
     "startTime": "19:30:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9211533,
+      "lng": -1.4086124,
+      "address": "7 Chapel St, Spondon, Derby DE21 7JP",
+      "postcode": "DE21 7JP"
+    }
   },
   {
     "id": "21c3810a-e25b-3b53-8252-6ea9245cade9",
@@ -2484,7 +3263,13 @@
     "date": "2025-12-04",
     "startTime": "20:00:00",
     "endTime": null,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9242523,
+      "lng": -1.4835902,
+      "address": "42 Brook St, Derby DE1 3PH",
+      "postcode": "DE1 3PH"
+    }
   },
   {
     "id": "9ff8353e-5bf7-3495-a8ec-9ebca35b2969",
@@ -2494,7 +3279,13 @@
     "date": "2025-12-07",
     "startTime": "16:00:00",
     "endTime": "20:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9039124,
+      "lng": -1.5488255,
+      "address": "1 Etwall Rd, Mickleover, Derby DE3 0DL",
+      "postcode": "DE3 0DL"
+    }
   },
   {
     "id": "c1e5d206-46ac-32be-a79f-4109515c612c",
@@ -2504,7 +3295,13 @@
     "date": "2025-12-07",
     "startTime": "17:30:00",
     "endTime": "19:30:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.8973808,
+      "lng": -1.5113314,
+      "address": "19-20 Sadler Gate, Derby DE1 3NH",
+      "postcode": "DE1 3NH"
+    }
   },
   {
     "id": "01a82a6e-354d-3ca4-b850-1dc67a474e26",
@@ -2514,7 +3311,13 @@
     "date": "2025-12-07",
     "startTime": "18:00:00",
     "endTime": "22:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.9304462,
+      "lng": -1.4370677,
+      "address": "2 Morley Rd, Chaddesden, Derby DE21 4QU",
+      "postcode": "DE21 4QU"
+    }
   },
   {
     "id": "c53a0ba2-433f-321f-aeb3-2c7ad6e828b1",
@@ -2524,7 +3327,13 @@
     "date": "2025-12-07",
     "startTime": "20:00:00",
     "endTime": "23:00:00",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "location": {
+      "lat": 52.923349,
+      "lng": -1.4835134,
+      "address": "16 Sadler Gate, Derby DE1 3NF",
+      "postcode": "DE1 3NF"
+    }
   }
 ]
 </script>

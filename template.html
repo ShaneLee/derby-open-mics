@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicons/favicon.svg" />
     <link rel="shortcut icon" href="favicons/favicon.ico" />
@@ -12,6 +14,34 @@
     <link rel="manifest" href="/site.webmanifest" />   <meta name="description" content="Find a comprehensive list of upcoming open mic nights in and around Derby. Your guide to live music and performance opportunities in the local area.">
     <title>Upcoming Open Mics in Derby</title>
     <style>
+        #map-view {
+            height: 600px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-marker-popup h3 {
+            margin: 0 0 5px 0;
+            color: #0056b3;
+        }
+        
+        .map-marker-popup p {
+            margin: 2px 0;
+        }
+        .leaflet-popup-content-wrapper.cancelled,
+        .leaflet-popup-content-wrapper.inactive {
+            border-left: 5px solid #dc3545;
+        }
+
+        .map-marker-popup .cancelled-label,
+        .map-marker-popup .inactive-label {
+            margin-bottom: 8px;
+            display: block;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -188,7 +218,10 @@
         <button id="clearFilter">Clear Filter</button>
         <button id="filterToday">Filter for Today</button>
         <button id="toggleView">Switch to Table View</button>
+        <button id="toggleMapView">Show Map View</button>
     </div>
+
+    <div id="map-view"></div> 
 
     <div id="events-container"><!-- Content dynamically rendered by embedded script --></div>
 

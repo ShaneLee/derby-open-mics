@@ -25,11 +25,100 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterTodayButton = document.getElementById('filterToday');
     const toggleViewButton = document.getElementById('toggleView');
     let isTableView = false;
-
+    const mapViewButton = document.getElementById('toggleMapView');
+    const mapContainer = document.getElementById('map-view');
+    let map = null;
+    let isMapView = false;
+    
     if (typeof eventsData === 'undefined' || eventsData.length === 0) {
         container.innerHTML = '<p>No event data available.</p>';
         return;
     }
+
+    function initMap() {
+        if (map) return;
+        
+        // Center on Derby with higher zoom level (14 instead of 13)
+        map = L.map('map-view', {
+            center: [52.9225301, -1.4746186],
+            zoom: 14,
+            maxZoom: 19,
+            scrollWheelZoom: true
+        });
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+    }
+
+    function updateMapMarkers(events) {
+        if (!map) return;
+        
+        map.eachLayer((layer) => {
+            if (layer instanceof L.Marker) {
+                map.removeLayer(layer);
+            }
+        });
+
+        // Get today's date for filtering
+        const today = new Date().toISOString().split('T')[0];
+        
+        // Sort events by date and filter future events
+        const sortedEvents = events
+            .filter(event => event.date >= today)
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        const unique = new Map();
+        sortedEvents.forEach(event => {
+            const venueName = event.name;
+            if (!unique.has(venueName) && event.location?.lat && event.location?.lng) {
+                unique.set(venueName, event);
+            }
+        });
+
+        unique.forEach(event => {
+            const lat = Number(parseFloat(event.location.lat).toFixed(7));
+            const lng = Number(parseFloat(event.location.lng).toFixed(7));
+
+            const marker = L.marker([lat, lng])
+                .addTo(map);
+            
+            const formattedDate = formatDate(event.date);
+            const formattedTime = formatTime(event.date, event.startTime);
+            const status = statusToTypes(event.status);
+            
+            marker.bindPopup(`
+                <div class="map-marker-popup">
+                    ${status.label}
+                    <h3>${event.name}</h3>
+                    <p><strong>Date:</strong> ${formattedDate}</p>
+                    <p><strong>Time:</strong> ${formattedTime}</p>
+                    ${event.location.address ? `<p>${event.location.address}</p>` : ''}
+                </div>
+            `);
+
+            if (status.class) {
+                const popupElement = marker.getPopup();
+                popupElement.options.className = status.class.replace('class="', '').replace('"', '');
+            }
+        });
+    }
+
+    mapViewButton.addEventListener('click', () => {
+        isMapView = !isMapView;
+        mapViewButton.textContent = isMapView ? 'Hide Map View' : 'Show Map View';
+        
+        if (isMapView) {
+            mapContainer.style.display = 'block';
+            initMap();
+            updateMapMarkers(eventsData);
+            map.invalidateSize();
+        } else {
+            mapContainer.style.display = 'none';
+        }
+    });
+
 
     const formatDate = (dateString) => {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -160,6 +249,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         renderEvents(filteredEvents, isTableView ? 'table' : 'card');
+        if (isMapView && map) {
+            updateMapMarkers(filteredEvents);
+        }
     };
 
     dateFilter.value = '';
