@@ -1,5 +1,5 @@
 User-agent: *
         Allow: /
         Sitemap: https://derby-open-mics.com/sitemap.xml
-        Last-Modified: 2025-12-31
+        Last-Modified: 2026-01-01
         
