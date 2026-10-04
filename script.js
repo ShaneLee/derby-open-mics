@@ -223,6 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Time:</strong> ${timeDisplay}</p>
             `;
 
+            if (event.location?.address) {
+                cardContent += `<p><strong>Address:</strong> ${event.location.address}</p>`;
+            }
+
             if (event.notes) {
                 const noteText = event.notes.startsWith('http') 
                     ? `<a href="${event.notes}" target="_blank">More Info</a>`
